@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/config-scss/variables.scss';
+@import './app/config-scss/rem-calc.scss';
+
+* {margin: 0;}
