@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 //Componets material
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -12,11 +13,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
   imports: [
     CommonModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   exports: [
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ]
 })
 export class AppMaterialModule { }

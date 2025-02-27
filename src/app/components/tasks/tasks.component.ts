@@ -1,5 +1,7 @@
+import { TaskService } from './../../services/task.service';
 import { Component } from '@angular/core';
 import { AppMaterialModule } from '../../shared/app-material/app-material.module';
+import { Task } from '../../models/task';
 
 @Component({
   selector: 'app-tasks',
@@ -10,4 +12,16 @@ import { AppMaterialModule } from '../../shared/app-material/app-material.module
 })
 export class TasksComponent {
   panelOpenState = false;
+
+  tasks: Task[] = [];
+
+  constructor(private service: TaskService) {
+    this.service.getTasks().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.tasks = res;
+      },
+      error: (error) => console.log(error)
+    });
+  }
 }

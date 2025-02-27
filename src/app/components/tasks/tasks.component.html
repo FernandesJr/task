@@ -1,16 +1,19 @@
 <main>
   <h2>Suas Tarefas</h2>
 
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                        (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Titulo da tarefa aqui
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>Descrição da tarefa aqui</p>
-  </mat-expansion-panel>
+  @for (task of tasks; track task) {
+  <div class="tasks">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{task.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{task.description}}</p>
+    </mat-expansion-panel>
+  </div>
+  }
 </main>
