@@ -2,7 +2,45 @@
 
 main{
   padding: rem-calc(15);
+  .top-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    button {
+      color: var(--white);
+      background: rgb(15,0,36);
+      background: linear-gradient(90deg, rgba(15,0,36,1) 0%, rgba(2,97,158,1) 47%, rgba(169,215,209,1) 100%);
+    }
+  }
+  
+  mat-button-toggle-group {
+    margin-left: 12px;
+  }
+  
   .tasks {
     margin: 10px 10px;
+    mat-expansion-panel-header {
+      display: flex;
+      justify-content: space-between;
+      mat-panel-title {
+        font-size: rem-calc(17);
+      }
+      .mat-expansion-panel-header-description {
+        justify-content: flex-end;
+        align-items: center;
+        max-width: 30px;
+      }
+    }
+    .con-btn-edit {
+      display: flex;
+      justify-content: end;
+    }
+  }
+  .task-no-completed {
+    background: var(--primary-color);
+    color: var(--white);
+  }
+  .check-ok {
+    color: var(--primary-color);
   }
 }

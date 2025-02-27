@@ -1,18 +1,40 @@
 <main>
-  <h2>Suas Tarefas</h2>
+  <div class="top-info">
+    <h2>Suas Tarefas</h2>
+    <button mat-fab extended>
+      <mat-icon>add</mat-icon>
+      Tarefa
+    </button>
+  </div>
 
-  @for (task of tasks; track task) {
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="Todas" (click)="selectedAllTasks()">Todas</mat-button-toggle>
+    <mat-button-toggle value="Concluídas" (click)="selectedTasksCompleted()">Concluídas</mat-button-toggle>
+    <mat-button-toggle value="Pendentes" (click)="selectedTasksNoCompleted()">Pendentes</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  @for (task of tasksSelected; track task) {
   <div class="tasks">
-    <mat-expansion-panel>
+    <mat-expansion-panel [ngClass]="{'task-no-completed': !task.status}">
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title [ngClass]="{'task-no-completed': !task.status}">
           {{task.title}}
         </mat-panel-title>
-        <mat-panel-description>
-          <mat-icon>date_range</mat-icon>
+        <mat-panel-description [ngClass]="{'task-no-completed': !task.status}">
+          @if (!task.status) {
+            <mat-icon>date_range</mat-icon>
+          } @else {
+            <mat-icon class="check-ok">task_alt</mat-icon>
+          }
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>{{task.description}}</p>
+      @if (task.status) {
+        <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy hh:mm"}}</p>
+      }
+      <div class="con-btn-edit">
+        <button mat-raised-button>Editar</button>
+      </div>
     </mat-expansion-panel>
   </div>
   }
