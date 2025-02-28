@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AppMaterialModule } from '../../shared/app-material/app-material.module';
 import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -16,7 +17,7 @@ export class TasksComponent {
   tasks: Task[] = [];
   tasksSelected: Task[] = [];
 
-  constructor(private service: TaskService) {
+  constructor(private service: TaskService, private router: Router) {
     this.service.getTasks().subscribe({
       next: (res) => {
         this.tasks = res;
@@ -28,11 +29,14 @@ export class TasksComponent {
   }
 
   private checkTaskStatus() {
-    // API return 0001 in fullYear how default when date is null;
     this.tasks.forEach(t => {
-      if (new Date(t.finishDateTime).getFullYear() == 1) t.status = false;
+      if (t.finishDateTime == null) t.status = false;
       else t.status = true;
     });
+  }
+
+  public newTaskNavigate(): void {
+    this.router.navigate(['/task']);
   }
 
   public selectedAllTasks(): void {
@@ -45,5 +49,9 @@ export class TasksComponent {
 
   public selectedTasksNoCompleted(): void {
     this.tasksSelected = this.tasks.filter(t => !t.status);
+  }
+
+  public editTask(id: string) {
+    this.router.navigate([`task/${id}`]);
   }
 }

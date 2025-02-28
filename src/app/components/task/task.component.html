@@ -1,0 +1,19 @@
+<main>
+  <h2>Criar uma nova Tarefa</h2>
+  <div class="form-task">
+    <form [formGroup]="taskForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Título da sua tarefa" formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput placeholder="Máximo de 250 caracteries" formControlName="description"></textarea>
+      </mat-form-field>
+    </form>
+    <div class="btns-task">
+      <button mat-raised-button class="save" [disabled]="taskForm.invalid" (click)="create()">Salvar</button>
+      <button mat-button (click)="back()">Cancelar</button>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,51 @@
+@import '../../config-scss/rem-calc.scss';
+
+main{
+  padding: rem-calc(15);
+  .form-task {
+    margin: auto;
+    padding: 10px;
+    max-width: 750px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #0000002b;
+    background: var(--light-gray);
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  .enable-task-again {
+    p {
+      color: var(--primary-color);
+    }
+  }
+  .btns-task {
+    display: flex;
+    justify-content: end;
+    margin-bottom: rem-calc(15);
+    .save {
+      margin-right: rem-calc(10);
+      color: var(--white);
+      background: rgb(15,0,36);
+      background: linear-gradient(90deg, rgba(15,0,36,1) 0%, rgba(2,97,158,1) 47%, rgba(169,215,209,1) 100%);
+    }
+  }
+  .zona-danger {
+    margin: 20px auto;
+    max-width: 750px;
+    padding: rem-calc(16);
+    border-radius: 10px;
+    border: solid 1px var(--error);
+    color: var(--error);
+
+    .align-items {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      p {
+        margin: 0 10px;
+      }
+    }
+  }
+}

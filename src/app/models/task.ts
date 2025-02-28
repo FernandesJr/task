@@ -1,8 +1,8 @@
 export interface Task {
-  id: string,
+  id?: string,
   title: string,
   description: string,
-  finishDateTime?: any,
+  finishDateTime?: Date | null,
   status?: boolean
 }
 

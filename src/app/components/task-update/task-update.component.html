@@ -1,0 +1,37 @@
+<main>
+  <h2>Atualizar uma nova Tarefa</h2>
+  <div class="form-task">
+    <form [formGroup]="taskForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Título da sua tarefa" formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput placeholder="Máximo de 250 caracteries" formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-slide-toggle formControlName="status" color="#02619E">
+        Concluída
+      </mat-slide-toggle>
+    </form>
+    @if (task.status) {
+      <div class="enable-task-again">
+        <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy hh:mm"}}</p>
+        <button mat-button (click)="enableTaskAgain()">Reabrir tarefa</button>
+      </div>
+    }
+    <div class="btns-task">
+      <button mat-raised-button class="save" [disabled]="taskForm.invalid" (click)="update()">Atualizar</button>
+      <button mat-button (click)="back()">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="zona-danger">
+    <div class="align-items">
+      <mat-icon aria-hidden="false" aria-label="Zona de perigo" fontIcon="warning" color="warn">
+      </mat-icon>
+      <p>Zona de perigo</p>
+    </div>
+    <button mat-stroked-button color="warn" (click)="delete()">Deletar Tarefa</button>
+  </div>
+</main>

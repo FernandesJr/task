@@ -1,7 +1,7 @@
 <main>
   <div class="top-info">
     <h2>Suas Tarefas</h2>
-    <button mat-fab extended>
+    <button mat-fab extended (click)="newTaskNavigate()">
       <mat-icon>add</mat-icon>
       Tarefa
     </button>
@@ -33,7 +33,7 @@
         <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy hh:mm"}}</p>
       }
       <div class="con-btn-edit">
-        <button mat-raised-button>Editar</button>
+        <button mat-raised-button (click)="editTask(task.id!)">Editar</button>
       </div>
     </mat-expansion-panel>
   </div>
