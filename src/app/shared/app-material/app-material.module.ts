@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -22,7 +23,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatButtonToggleModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     MatSlideToggleModule,
@@ -31,7 +33,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatButtonToggleModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class AppMaterialModule { }

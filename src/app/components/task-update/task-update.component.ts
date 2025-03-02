@@ -8,7 +8,8 @@ import { Task } from '../../models/task';
 import moment from 'moment';
 import { CommonModule } from '@angular/common';
 import { TaskUpdateDto } from '../../models/task-update-dto';
-import { ConnectableObservable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-task-update',
@@ -33,7 +34,8 @@ export class TaskUpdateComponent {
     private service: TaskService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    public dialog: MatDialog) {
 
   }
 
@@ -49,7 +51,6 @@ export class TaskUpdateComponent {
   public getTask(): void {
     this.service.getTaskById(this.idParam).subscribe({
       next: res => {
-        console.log(res);
         this.task = res;
       },
       error: error => console.log(error),
@@ -100,7 +101,6 @@ export class TaskUpdateComponent {
   private callService(): void {
     this.service.updateTask(this.idParam, this.createTaskDto()).subscribe({
       next: res => {
-        console.log(res);
         this.toastr.info('Tarefa atualizada!');
         this.router.navigate(['tasks']);
       },
@@ -113,7 +113,9 @@ export class TaskUpdateComponent {
 
   public update(): void {
     this.joinTaskWithForm();
-    if(this.task.status && !this.taskAlreadyCompleted) this.task.finishDateTime = new Date(moment().format());
+    if(this.task.status && !this.taskAlreadyCompleted) {
+      this.task.finishDateTime = new Date(moment().format());
+    }
     this.callService();
   }
 
@@ -127,6 +129,26 @@ export class TaskUpdateComponent {
         console.log(error);
       }
     })
+  }
+  
+  public confirmDelete(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: 'Você tem certeza que deseja excluir essa tarefa?',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.delete();
+    });
+  }
+
+  public confirmEnableTaskAgain(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: 'Você tem certeza que deseja REABRIR essa tarefa?',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.enableTaskAgain();
+    });
   }
 
   back(): void {
