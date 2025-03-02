@@ -1,0 +1,13 @@
+main {
+  margin: 50px auto;
+  padding: 15px;
+  max-width: 450px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #0000002b;
+  background: var(--primary-color);
+  color: var(--white);
+  button {
+    background: var(--white);
+    color: var(--primary-color)
+  }
+}
