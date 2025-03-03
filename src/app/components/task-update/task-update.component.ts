@@ -114,7 +114,7 @@ export class TaskUpdateComponent {
   public update(): void {
     this.joinTaskWithForm();
     if(this.task.status && !this.taskAlreadyCompleted) {
-      this.task.finishDateTime = new Date(moment().format());
+      this.task.finishDateTime = moment().format();
     }
     this.callService();
   }
@@ -130,7 +130,7 @@ export class TaskUpdateComponent {
       }
     })
   }
-  
+
   public confirmDelete(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: 'Você tem certeza que deseja excluir essa tarefa?',

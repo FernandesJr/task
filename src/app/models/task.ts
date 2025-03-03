@@ -2,7 +2,7 @@ export interface Task {
   id?: string,
   title: string,
   description: string,
-  finishDateTime?: Date | null,
+  finishDateTime?: any,
   status?: boolean
 }
 

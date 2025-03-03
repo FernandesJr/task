@@ -16,7 +16,7 @@
     </form>
     @if (task.status) {
       <div class="enable-task-again">
-        <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy hh:mm"}}</p>
+        <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy HH:mm"}}</p>
         <button mat-button (click)="confirmEnableTaskAgain()">Reabrir tarefa</button>
       </div>
     }

@@ -30,7 +30,9 @@
       </mat-expansion-panel-header>
       <p>{{task.description}}</p>
       @if (task.status) {
-        <p>Concluída em: {{task.finishDateTime | date: "dd/MM/yyyy hh:mm"}}</p>
+        <p>
+          Concluída em: {{task.finishDateTime | date: 'dd/MM/yyyy HH:mm'}}
+        </p>
       }
       <div class="con-btn-edit">
         <button mat-raised-button (click)="editTask(task.id!)">Editar</button>
