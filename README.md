@@ -1,27 +1,52 @@
 # IatecTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
+Esse projeto foi gerado usando [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
 
-## Development server
+O Iatec Task é um sistema de gerenciamento de tarefas a serem feitas pelo o usuário.
+As tarefas podem ter dois status *Pedente* ou *Concluída*
+O usuário terá acesso a:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Lista de tarefas
+* Indentifacadas por cores e ícones distintos
+* Data e hora das atividades concluídas
+* Possibilidade de criar quantas tarefas precisar
+* Filtra as tarefas por pendentes ou concluídas
+* Editar título ou descrição das tarefas
+* Excluir tarefas
+* Reabrir tarefas anteriormente já finalizadas
 
-## Code scaffolding
+## Lista de tarefas
+Todas as tarefas, podendo filtrar por *Todas* | *Concluídas* | *Pendentes*
+Endpoint http://localhost:4200/tasks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Image](https://github.com/user-attachments/assets/9833e843-2860-4e43-be09-0fc9300ca49d)
 
-## Build
+*Clicando no botão (+ tarefa) será direcionado para a criação de uma nova tarefa :point_down:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Criar tarefa
+Crie uma nova tarefa informando o título e descrição
 
-## Running unit tests
+![Image](https://github.com/user-attachments/assets/f7c70dfc-f28c-4d14-a2ba-2021ff4df12e)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Atualize a tarefa
+Poderá ser editado o título, descrição ou status da tarefa
+*Caso a tarefa já tenha sido concluída, poderá ainda ser reaberta*
+*Também poderá ser deletada*
 
-## Running end-to-end tests
+![Image](https://github.com/user-attachments/assets/bdec2591-84ab-4b01-9382-13692e907d37)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Executando o app localmente
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Certifique de ter instalado;
+*Angular cli 17.3.12
+*Node 22.14.0
+*NPM 11.1.0
+
+Abra um terminal na pasta raiz '\' do projeto;
+Execulte `ng serve` para rodar um serviço que irá disponibilar o app. Acesse `http://localhost:4200/`.
+
+Essa aplicação para funcionar perfeitamente espera um serviço de back-end apontando para outro serviço que precisa esta sendo execultado em `http://localhost:5217/`
+Você poderá encontrar o back-end neste link :point_down:
+[.NET back task](https://github.com/FernandesJr/task-back)
+
