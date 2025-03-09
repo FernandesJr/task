@@ -1,3 +1,4 @@
+import { AuthComponent } from './components/auth/auth.component';
 import { Routes } from '@angular/router';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
@@ -9,5 +10,6 @@ export const routes: Routes = [
   {path: 'tasks', component: TasksComponent},
   {path: 'task', component: TaskComponent},
   {path: 'task/:id', component: TaskUpdateComponent},
+  {path: 'auth', component: AuthComponent},
   {path: '**', component: NotFoundComponent}
 ];

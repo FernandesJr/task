@@ -1,0 +1,13 @@
+.form-auth {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  width: 380px;
+  padding: 15px;
+  .btn-login {
+    color: var(--white);
+    background: rgb(15,0,36);
+    background: linear-gradient(90deg, rgba(15,0,36,1) 0%, rgba(2,97,158,1) 47%, rgba(169,215,209,1) 100%);
+  }
+}
