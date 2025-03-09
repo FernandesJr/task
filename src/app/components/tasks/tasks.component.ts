@@ -1,5 +1,6 @@
+import { AuthService } from './../../services/auth.service';
 import { TaskService } from './../../services/task.service';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppMaterialModule } from '../../shared/app-material/app-material.module';
 import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './tasks.component.scss'
 })
 export class TasksComponent {
+
+  authService: AuthService = inject(AuthService);
 
   tasks: Task[] = [];
   tasksSelected: Task[] = [];
@@ -53,5 +56,9 @@ export class TasksComponent {
 
   public editTask(id: string) {
     this.router.navigate([`task/${id}`]);
+  }
+
+  public logout(): void {
+    this.authService.logout();
   }
 }
